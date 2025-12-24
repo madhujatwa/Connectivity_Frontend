@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-import UserForm from './pages/UserForm'; // ✅ import UserForm
+import UserCreate from './components/UserCreate';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <UserForm />
+      
+      <UserCreate/>
     </>
   );
 }
