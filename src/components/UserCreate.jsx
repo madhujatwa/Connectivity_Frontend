@@ -9,13 +9,16 @@ function UserCreate() {
     phone: "",
     department: ""
   });
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
+
 
   const [users, setUsers] = useState([]);
 
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/users/all");
+      const response = await fetch(`${BASE_URL}/all`);
       
       const data = await response.json();
       setUsers(data);
@@ -39,8 +42,9 @@ function UserCreate() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     try {
-      const response = await fetch("http://localhost:8080/api/users/add", {
+      const response = await fetch(`${BASE_URL}/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
